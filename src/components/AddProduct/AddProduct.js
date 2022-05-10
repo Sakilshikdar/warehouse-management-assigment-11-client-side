@@ -1,3 +1,4 @@
+import axios from 'axios';
 import React from 'react';
 
 const AddProduct = () => {
@@ -8,6 +9,18 @@ const AddProduct = () => {
           price: e.target.price.value,
           image: e.target.image.value,
         };
+        
+        try {
+          const { data } = await axios.post("http://localhost:5000/products", product);
+    
+          if (!data.success) {
+            return alert.error(data.error);
+          }
+    
+          alert.success(data.message);
+        } catch (error) {
+          alert.error(error.message)
+        }
       };
       return (
         <div className="py-32 px-10 min-h-screen w-full">
@@ -64,7 +77,6 @@ const AddProduct = () => {
             </form>
           </div>
         </div>
-      );
-};
+)};
 
 export default AddProduct;
