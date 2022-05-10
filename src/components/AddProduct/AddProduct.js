@@ -1,10 +1,11 @@
 import React from 'react';
 import { useForm } from 'react-hook-form';
+import { toast } from 'react-toastify';
 
 const AddProduct = () => {
   const { register, handleSubmit } = useForm();
   const onSubmit = data => {
-      console.log(data);
+    console.log(data);
       const url = `https://gentle-harbor-89262.herokuapp.com/product`;
       fetch(url, {
           method: 'POST',
@@ -15,8 +16,9 @@ const AddProduct = () => {
       })
       .then(res=> res.json())
       .then(result =>{
-          console.log(result);
+         console.log();
       } )
+     
   };
   
 

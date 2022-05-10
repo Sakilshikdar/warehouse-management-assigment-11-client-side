@@ -7,7 +7,7 @@ const Items = () => {
     const [updated, setUpdated] = useState(false);
 
     useEffect(() => {
-        fetch('http://localhost:5000/product')
+        fetch('https://gentle-harbor-89262.herokuapp.com/product')
             .then(res => res.json())
             .then(data => setProducts(data))
     }, [])
@@ -15,7 +15,7 @@ const Items = () => {
     const handleDelete = id => {
         const proceed = window.confirm('Are you sure?');
         if (proceed) {
-            const url = `http://localhost:5000/items/${id}`;
+            const url = `https://gentle-harbor-89262.herokuapp.com/items/${id}`;
             fetch(url, {
                 method: 'DELETE'
             })
