@@ -2,6 +2,7 @@ import { Route, Routes } from 'react-router-dom';
 import { ToastContainer } from 'react-toastify';
 import './App.css';
 import AddProduct from './components/AddProduct/AddProduct';
+import Blogs from './components/Blogs/Blogs';
 import Inventory from './components/Inventory/Inventory';
 import Login from './components/Login/Login/Login';
 import Register from './components/Login/Register/Register';
@@ -28,6 +29,7 @@ function App() {
         <Route path='/items' element={<Items></Items>}></Route>
         <Route path='/itemsAdd' element={<AddProduct></AddProduct>}></Route>
         <Route path='/myiItems' element={<Orders></Orders>}></Route>
+        <Route path='/blogs' element={<Blogs></Blogs>}></Route>
         <Route path='*' element={<ErrorPage></ErrorPage>}></Route>
       </Routes>
       <ToastContainer />
