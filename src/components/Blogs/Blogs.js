@@ -10,14 +10,13 @@ const Blogs = () => {
             </div>
             <div className='p-3'>
                 <h4 className='text-center'>2. When should you use nodejs and when should you use mongodb?</h4>
-                <h6>Firebase is Google's mobile application development platform. It has a lot of different products that cover a lot of what is needed to create a mobile app.
-                    5 Common Authentication Types.When a user registers for an account, they must create a unique ID and key that will allow them to access their account later. When your user authentication is not secure, however, cyber criminals can hack into the system and gain access. User authorized access.
+                <h6>Mongoose is a Node.The problem that Mongoose aims to solve is allowing developers to enforce a specific schema at the application layer.Mongoose also offers a variety of hooks, model validation, and other features aimed at making it easier to work with MongoDB. In the past, the only way to enforce a schema against a MongoDB collection was to do it at the application level using an ODM like Mongoose, but that posed significant challenges for developers.
 
                 </h6>
             </div>
             <div className='p-3'>
                 <h4 className='text-center'>3. What is the purpose of jwt and how does it work?</h4>
-                <h6>According to Firebase console, the application SDKs provided by this toolkit, directly interact with backend services. Therefore, there is no need to establish any connection between the app and the service.Applications can be created without a backend server. There is no need to spend extra money for backend server.You can provide any social networking login with very few lines code.Push notification.Analytics.</h6>
+                <h6>When JWT authentication and server-to-server authorization, JSON web token JWT is particularly a useful technology. In terms of Single Sign-On, it means that a service provider can receive trustworthy information from the authentication server. Now, if that result matches the signature, the SP knows that the information provided has come from the other entity possessing the key..</h6>
             </div>
         </div>
     );
