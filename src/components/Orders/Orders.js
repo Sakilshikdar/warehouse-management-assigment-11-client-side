@@ -8,7 +8,6 @@ import auth from '../../firebase.init';
 
 const Orders = () => {
     const {id} = useParams();
-    // const [service] = useProducts(id);
     const [user] = useAuthState(auth);
     const [products, setProducts] = useState([]);
 
