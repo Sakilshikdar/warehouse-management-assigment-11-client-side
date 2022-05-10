@@ -1,5 +1,6 @@
 import axios from 'axios';
 import React, { useEffect, useState } from 'react';
+import { Link } from 'react-router-dom';
 
 const Items = () => {
     const [products, setProducts] = useState([]);
@@ -10,15 +11,6 @@ const Items = () => {
             .then(res => res.json())
             .then(data => setProducts(data))
     }, [])
-
-    // const handleDelete = (id) => {
-    //     (async () => {
-    //       const { data } = await axios.delete(`http://localhost:5000/items/${id}`);
-    //       if(!data.success) return alert ('not success')
-    //       alert(data.message)
-    //       setUpdated(!updated)
-    //     })()
-    //   }
     
     const handleDelete = id => {
         const proceed = window.confirm('Are you sure?');
@@ -59,8 +51,9 @@ const Items = () => {
                 </thead>
                 <tbody>
                     {products?.length ? (
-                        products.map((product) => {
+                        products.map((product) =>{
                             return (
+                                
                                 <tr className="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
                                     <th
                                         scope="row"
@@ -90,6 +83,9 @@ const Items = () => {
                     )}
                 </tbody>
             </table>
+            <div className='d-flex justify-content-center my-3'>
+            <Link to={'/itemsAdd'}><button className=' border-none'>Add new item</button></Link>
+            </div>
         </div>
     );
 };
