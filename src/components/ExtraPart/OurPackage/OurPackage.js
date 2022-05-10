@@ -35,7 +35,7 @@ const OurPackage = () => {
                 </div>
 
                 <div>
-                    <img className='package-img' src="https://i.ibb.co/b54WgRG/278325767-366115525550732-7588314717429124789-n.jpg" alt="" srcset="" />
+                    <img className='package-img' src="https://i.ibb.co/b54WgRG/278325767-366115525550732-7588314717429124789-n.jpg" alt=""/>
                 </div>
             </div>
         </div>

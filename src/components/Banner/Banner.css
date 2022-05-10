@@ -25,7 +25,8 @@
     }
     .img{
         order: 1;
-        margin-left: 100px;
+        margin-left: 50px;
         padding: 0px;
+        /* margin: 0; */
     }
 }

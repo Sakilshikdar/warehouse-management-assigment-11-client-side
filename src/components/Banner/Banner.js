@@ -8,7 +8,7 @@ const Banner = () => {
             <p>This is a side here we stored some electronics products.Here have Tv,camera,laptop and other Electronics Products</p>
             </div>
             <div>
-                <img className='img w-50' src="https://www.startech.com.bd/image/cache/catalog/gimbal/zhiyun/smooth-5/smooth-5-01-500x500.jpg" />
+                <img className='img w-75' src="https://thumbs.dreamstime.com/b/september-pathum-thani-thailand-industrial-warehouse-i-september-pathum-thani-thailand-industrial-warehouse-interior-shelves-126441631.jpg" />
             </div>
         </div>
     );

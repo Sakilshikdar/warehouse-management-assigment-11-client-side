@@ -8,6 +8,16 @@
 
   @media screen and (max-width: 576px) {
     .last-section{
-        width: 430px;
+        width: 100%;
+    }
+    .service-section{
+      padding-right: 50px;
+    }
+    .contract-section{
+      padding-right: 50px;
+      padding-top: 0 !important;
+    }
+    .icon{
+      display: none;
     }
 }
