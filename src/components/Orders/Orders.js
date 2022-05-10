@@ -12,7 +12,7 @@ const Orders = () => {
     const [products, setProducts] = useState([]);
 
     useEffect(() => {
-        fetch('http://localhost:5000/product')
+        fetch('https://gentle-harbor-89262.herokuapp.com/product')
             .then(res => res.json())
             .then(data => setProducts(data))
     }, [])
@@ -26,7 +26,7 @@ const Orders = () => {
             address: event.target.address.value,
             phone: event.target.phone.value
         }
-        axios.post('http://localhost:5000/order', order)
+        axios.post('https://gentle-harbor-89262.herokuapp.com/order', order)
         .then(response =>{
             const {data} = response;
             if(data.insertedId){

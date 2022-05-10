@@ -7,17 +7,26 @@ import Social from "../../Hooks/Social";
 import { toast, ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import Loading from '../../Shear/Loading/Loading'
+import { sendEmailVerification } from "firebase/auth";
 
 const Register = () => {
   const [createUserWithEmailAndPassword, user, loading, error] =
     useCreateUserWithEmailAndPassword(auth);
+    const [sendEmailVerification, sending, error1] = useSendEmailVerification(
+      auth
+    )
   const navigate = useNavigate();
   if (user) {
     navigate("/login");
 
   }
 
-  if(error){
+  const handleVerification = async () => {
+    await sendEmailVerification();
+    alert('Sent Verification Email');
+  }
+
+  if(error || error1){
    return toast(error)
   }
 
@@ -25,7 +34,7 @@ const Register = () => {
     navigate("/login");
   };
 
-  if (loading) {
+  if (loading||sending) {
     return <Loading></Loading>
   }
 
@@ -34,6 +43,7 @@ const Register = () => {
     const email = event.target.email.value;
     const password = event.target.password.value;
       createUserWithEmailAndPassword(email, password);
+      handleVerification()
   };
 
   return (

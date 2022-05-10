@@ -23,7 +23,7 @@ const Header = () => {
                         <Nav className="me-auto">
                             <h4 style={{ marginTop: '4px' }}>Warehouse</h4>
                             <Nav.Link as={Link} to='/home' href="#Home">Home</Nav.Link>
-                            <Nav.Link as={Link} to='/inventory' href="#inventory/id">Inventory</Nav.Link>
+                            
                             <Nav.Link as={Link} to='/blogs'>Blogs</Nav.Link>
                             <Nav.Link as={Link} to='/myiItems'>My Items</Nav.Link>
                         </Nav>

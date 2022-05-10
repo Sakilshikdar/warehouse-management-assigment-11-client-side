@@ -8,36 +8,33 @@ const Inventory = () => {
     
 
     useEffect(() => {
-        const url = `http://localhost:5000/inventory/${id}`;
+        const url = `https://gentle-harbor-89262.herokuapp.com/inventory/${id}`;
         fetch(url)
             .then(res => res.json())
             .then(data => setProduct(data));
     }, []);
     console.log(product);
     const handleQuantity = (id) => {
-        // console.log(id);
-        // //  const preNum = Number() ;
-        // // if (quantityNum > 0) {
-        // //     setQuantityNum(id => id - 1)
-        // // }
-        // fetch(`http://localhost:5000/inventory/${id}`, {
-        //     method: 'PUT',
-        //     headers: {
-        //         'Content-Type': 'application/json',
-        //     },
-        //     body: JSON.stringify(quantityNum),
-        // })
-        //     .then(response => response.json())
-        //     .then(data => {
-        //         console.log('Success:', data);
-        //     })
-        //     .catch((error) => {
-        //         console.error('Error:', error);
-        //     });
+        console.log(id);
+        //  const preNum = Number() ;
+        // if (quantityNum > 0) {
+        //     setQuantityNum(id => id - 1)
+        // }
+        fetch(`https://gentle-harbor-89262.herokuapp.com/inventory/${id}`, {
+            method: 'PUT',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(quantityNum),
+        })
+            .then(response => response.json())
+            .then(data => {
+                console.log('Success:', data);
+            })
+            .catch((error) => {
+                console.error('Error:', error);
+            });
     };
-
-    // let quantity = product.quantity
-    // console.log(quantity);
     const handleAddQuantity = (event, id) => {
         event.preventDefault();
         console.log(id);
@@ -47,7 +44,7 @@ const Inventory = () => {
         const updatedProduct = {...quantity, number};
 
         // send data to the server
-        const url = `http://localhost:5000/inventory/${id}`;
+        const url = `https://gentle-harbor-89262.herokuapp.com/inventory/${id}`;
         fetch(url, {
             method: 'PUT',
             headers: {

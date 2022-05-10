@@ -8,7 +8,7 @@ const Cart = ({ product }) => {
         if (quantityNum > 0) {
             setQuantityNum(preCount => preCount - 1)
         }
-        fetch(`http://localhost:5000/product/${_id}`, {
+        fetch(`https://gentle-harbor-89262.herokuapp.com/product/${_id}`, {
             method: 'PUT',
             headers: {
                 'Content-Type': 'application/json',
