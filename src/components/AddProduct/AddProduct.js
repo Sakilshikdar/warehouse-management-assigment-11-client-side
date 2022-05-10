@@ -1,82 +1,38 @@
-import axios from 'axios';
 import React from 'react';
+import { useForm } from 'react-hook-form';
 
 const AddProduct = () => {
-    const handleSubmit = async (e) => {
-        e.preventDefault();
-        const product = {
-          name: e.target.name.value,
-          price: e.target.price.value,
-          image: e.target.image.value,
-        };
-        
-        try {
-          const { data } = await axios.post("http://localhost:5000/products", product);
-    
-          if (!data.success) {
-            return alert.error(data.error);
-          }
-    
-          alert.success(data.message);
-        } catch (error) {
-          alert.error(error.message)
-        }
-      };
-      return (
-        <div className="py-32 px-10 min-h-screen w-full">
-          <div className="bg-white p-10 md:w-3/4 lg:w-1/2 mx-auto">
-            <form onSubmit={handleSubmit}>
-              <div className="flex items-center mb-5">
-                <label className="inline-block w-40 mr-6 text-right font-bold text-gray-600">
-                  Product Name
-                </label>
-                <input
-                  type="text"
-                  name="name"
-                  placeholder="Name"
-                  className="flex-1 py-2 border-b-2 border-gray-400 focus:border-green-400 
-                          text-gray-600 placeholder-gray-400
-                          outline-none"
-                />
-              </div>
-    
-              <div className="flex items-center mb-5">
-                <label className="inline-block w-40 mr-6 text-right font-bold text-gray-600">
-                  Price
-                </label>
-                <input
-                  type="text"
-                  name="price"
-                  placeholder="price"
-                  className="flex-1 py-2 border-b-2 border-gray-400 focus:border-green-400 
-                          text-gray-600 placeholder-gray-400
-                          outline-none"
-                />
-              </div>
-    
-              <div className="flex items-center mb-10">
-                <label
-                  className="inline-block w-40 mr-6 text-right
-                                        font-bold text-gray-600"
-                >
-                  Image
-                </label>
-                <input
-                  type="text"
-                  name="image"
-                  placeholder="url"
-                  className="flex-1 py-2 border-b-2 border-gray-400 focus:border-green-400 
-                          text-gray-600 placeholder-gray-400
-                          outline-none"
-                />
-              </div>
-    
-              <div className="text-right">
-                <button className="py-3 px-8 bg-green-400 text-white font-bold">Add</button>
-              </div>
-            </form>
-          </div>
-        </div>
-)};
+  const { register, handleSubmit } = useForm();
+  const onSubmit = data => {
+      console.log(data);
+      const url = `http://localhost:5000/product`;
+      fetch(url, {
+          method: 'POST',
+          headers: {
+              'content-type': 'application/json'
+          },
+          body: JSON.stringify(data)
+      })
+      .then(res=> res.json())
+      .then(result =>{
+          console.log(result);
+      } )
+  };
+  
+
+  return (
+      <div className='w-50 mx-auto'>
+          <h2>Please add a service</h2>
+          <form className='d-flex flex-column' onSubmit={handleSubmit(onSubmit)}>
+              <input className='mb-2' placeholder='Name' {...register("name", { required: true, maxLength: 20 })} />
+              <textarea className='mb-2' placeholder='Description' {...register("description")} />
+              <input className='mb-2' placeholder='Price' type="number" {...register("price")} />
+              <input className='mb-2' placeholder='quantity' type="number" {...register("quantity")} />
+              <input className='mb-2' placeholder='Photo URL' type="text" {...register("img")} />
+              <input type="submit" value="Add product" />
+          </form>
+      </div>
+  );
+}
 
 export default AddProduct;
